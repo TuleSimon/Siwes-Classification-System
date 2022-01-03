@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router";
+import { BrowserRouter } from "react-router-dom";
+import { Navbar } from "./components";
+import { Home } from "./pages";
+import LandingPage from "./pages/Home/LandingPage";
+import Dashboard from "./pages/Home/students/Dashboard";
+import { Login, Signup } from "./pages/Home/students/forms";
+import Students from "./pages/Home/students/Students";
+import SupervisorDashboard from "./pages/Home/supervisors/Dashboard";
+import { SupervisorLogin, SupervisorSignup } from "./pages/Home/supervisors/forms";
+import Supervisors from "./pages/Home/supervisors/Supervisors";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    
+      <Routes>
+          <Route exact path='/' element={ <Home/>}>
+            <Route index element={<LandingPage/>}/>
+            <Route  path='/students' element={<Students/>}>
+              <Route index  element={<Login/>}/>
+              <Route path='/students/signin' element={<Login/>}/>
+              <Route path='/students/signup' element={<Signup/>}/>
+              <Route path='/students/dashboard' element={<Dashboard/>}/>
+            </Route>
+            <Route  path='/supervisors' element={<Supervisors/>}>
+              <Route index  element={<SupervisorLogin/>}/>
+              <Route path='/supervisors/signin' element={<SupervisorLogin/>}/>
+              <Route path='/supervisors/signup' element={<SupervisorSignup/>}/>
+              <Route path='/supervisors/dashboard' element={<SupervisorDashboard/>}/>
+            </Route>
+          </Route>
+          <Route path='*' element={
+            <div className='flex flex-col text-center place-items-center place-content-center h-full w-screen min-w-max '>
+              <Navbar fullWidth/>
+                <h1 className='text-3xl text-bg font-bold m-6'> PAGE NOT FOUND</h1>
+            </div>
+          }/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
