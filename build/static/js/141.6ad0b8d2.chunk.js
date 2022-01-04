@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmern_excercise_tracker=self.webpackChunkmern_excercise_tracker||[]).push([[141],{5141:function(e,r,c){c.r(r);c(2791);var s=c(6871),n=c(184);r.default=function(){return(0,n.jsx)("div",{className:"students",children:(0,n.jsx)(s.j3,{})})}}}]);
+//# sourceMappingURL=141.6ad0b8d2.chunk.js.map
