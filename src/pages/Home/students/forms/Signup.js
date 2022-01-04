@@ -28,7 +28,6 @@ function SignUp() {
         email.length > 3 &&
         address.length > 3 &&
         institution.length > 3 &&
-        state.length > 3 &&
         password.length > 5
       ) {
         axios
@@ -47,7 +46,7 @@ function SignUp() {
               setLoading(false)
               navigate('/students/signin')
           }).
-          catch(err => {alert(err) 
+          catch(err => {alert(err.response.data) 
             setLoading(false)});
       } else {
         setLoading(false)
@@ -72,6 +71,7 @@ function SignUp() {
           className="inputF"
           placeholder="Enter Full name"
           type="text"
+          name='name'
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
@@ -81,6 +81,7 @@ function SignUp() {
           className="inputF"
           placeholder="Enter Matno"
           type="text"
+          name='matno'
           value={matno}
           onChange={(e) => setMatNo(e.target.value)}
         />
@@ -90,6 +91,7 @@ function SignUp() {
           className="inputF"
           placeholder="Email address"
           type="email"
+          name='email'
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -99,6 +101,7 @@ function SignUp() {
           className="inputF"
           placeholder="Phone No."
           type="number"
+          name='phone'
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
         />

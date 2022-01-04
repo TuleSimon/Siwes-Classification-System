@@ -39,7 +39,7 @@ function SignUp() {
                   setLoading(false)
                   navigate('/supervisors/signin')
               }).
-              catch(err => {alert(err) 
+              catch(err => {alert(err.response.data) 
                 setLoading(false)});
           } else {
             setLoading(false)
