@@ -41,8 +41,8 @@ function SignUp() {
             state: state,
             password: password,
           })
-          .then((res) => {
-              alert('account created, now sign in')
+          .then(() => {
+              alert('account created, now sign in');
               setLoading(false)
               navigate('/students/signin')
           }).
